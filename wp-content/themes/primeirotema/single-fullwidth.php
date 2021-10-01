@@ -1,8 +1,15 @@
+<?php
+/*
+Template Name: Post Página Total
+Template Post Type: post
+*/ 
+?>
+
 <?php get_header(); ?>
 
 <section>
 
-	<div class="container">
+	<div class="container fullwidth">
 		<?php if(have_posts()): ?>
 			<?php while(have_posts()): ?>
 				<?php the_post(); ?>
@@ -34,32 +41,6 @@
 					</p>
 
 					<hr/>
-						<h3>Post Relacionados</h3>
-
-						<?php
-						$categories = get_the_category();
-
-						$bp_query = new WP_Query(array(
-							'posts_per_page' => 3,
-							'post__not_in' => array( $post->ID ),
-							'cat' => $categories[0]->term_id
-						)); 
-
-						if($bp_query->have_posts()) {
-							while($bp_query->have_posts()) {
-								$bp_query->the_post();
-
-								get_template_part('template_parts/related_post');
-							}
-
-							wp_reset_postdata();
-
-						}	
-
-						?>
-					<hr/>
-
-					<div class="clear:both"></div>
 
 					<?php
 						if(comments_open()) {
@@ -79,7 +60,7 @@
 
 	</div>
 
-	<?php get_sidebar(); ?>
+	
 
 	<div style="clear: both;"></div>
 </section>

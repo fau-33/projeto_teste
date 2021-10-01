@@ -17,6 +17,10 @@ body {
 	width: 70%;
 	float: left;
 }
+
+.fullwidth {
+	width: 100%;
+}
 sidebar {
 	width: 30%;
 	float: left;
@@ -64,6 +68,7 @@ footer {
 	margin-right: 10px;
 }
 
-.comentario_area {
-	
+.post_related_item {
+	width: 33%;
+	float: left;
 }
